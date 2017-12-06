@@ -18,6 +18,9 @@ public class IndexController {
         return "welcome";
     }
 
+    /*Springmvc默认会根据request中请求头是json还是xml来自动决定返回的是json还是xml，
+    如果请求头中没有指定，那么ResponseBody默认返回的是xml格式，如果显示指定了返回类型produces为json，
+    那么就直接返回json*/
     @RequestMapping(value = "/getJson",produces = "application/json;charset=UTF-8")
     @ResponseBody
     public User getJson(){
