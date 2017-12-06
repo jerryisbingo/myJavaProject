@@ -1,7 +1,9 @@
 package com.cb.controller;
 
+import com.cb.pojo.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @Description：
@@ -9,12 +11,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Author 陈斌
  */
 @Controller
-@RequestMapping("/index")
 public class IndexController {
 
     @RequestMapping("/welcome")
     public String welcome(){
         return "welcome";
     }
+
+    @RequestMapping(value = "/getJson",produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public User getJson(){
+        User u=new User(1L,"cb","陈斌",18);
+        return u;
+    }
+
+
 
 }
