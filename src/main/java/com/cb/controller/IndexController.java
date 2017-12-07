@@ -1,6 +1,8 @@
 package com.cb.controller;
 
 import com.cb.pojo.User;
+import com.cb.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -13,6 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class IndexController {
 
+    @Autowired
+    private UserService userService;
+
     @RequestMapping("/welcome")
     public String welcome(){
         return "welcome";
@@ -24,7 +29,8 @@ public class IndexController {
     @RequestMapping(value = "/getJson",produces = "application/json;charset=UTF-8")
     @ResponseBody
     public User getJson(){
-        User u=new User(1L,"cb","陈斌",18);
+      //  User u=new User(1L,"cb","陈斌",18,"18888888888");
+        User u=userService.selectByPrimaryKey(1l);
         return u;
     }
 
