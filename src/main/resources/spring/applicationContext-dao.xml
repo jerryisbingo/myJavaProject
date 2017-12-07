@@ -28,7 +28,7 @@
 		<!-- 加载mybatis的全局配置文件 -->
 		<property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml" />
 		<!--指定mybatis配置文件位置，默认不配置的话是与接口位于同一包下，指定后可以位于不同位置-->
-		<property name="mapperLocations" value="classpath*:mappers/*.xml" />
+		<property name="mapperLocations" value="classpath*:mappings/*.xml" />
 	</bean>
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!--指定mybatis接口包位置-->
